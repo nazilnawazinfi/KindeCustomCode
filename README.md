@@ -1,12 +1,12 @@
-# 🎨 SplitScape - Kinde Custom UI Starter Template
+# 🐾 Bark & Bite - Kinde Custom UI Starter Template
 
 A fully customizable UI starter template built with React Server Components and Kinde's Custom UI feature. Design your auth flows with complete control over the UI.
 
 ## Preview
 
-View [live demo]()
+View [live demo](https://barknbite.kindedemo.com/auth/cx/_:nav&m:register&psid:0194dd77a537034284e1e6d54a3f5777)
 
-![SplitScape](image.png)
+![Bark & Bite](image.png)
 
 ## Features
 
@@ -25,7 +25,7 @@ View [live demo]()
 In your project root directory, use the Kinde CLI and run
 
 ```bash
-kinde custom-ui --template splitscape
+kinde custom-ui --template bark-n-bite
 ```
 
 ## Customization Guide
