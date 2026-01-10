@@ -1,0 +1,24 @@
+"use server";
+
+import { Widget } from "../../../../components/widget";
+import { type KindePageEvent } from "@kinde/infrastructure";
+import React from "react";
+import { renderToString } from "react-dom/server.browser";
+import { DefaultLayout } from "../../../../layouts/default";
+import { Root } from "../../../../root";
+
+const SignUpEmailOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
+  return (
+    <Root context={context} request={request}>
+      <DefaultLayout isRegisterPage={true}>
+        <Widget heading={context.widget.content.heading} />
+      </DefaultLayout>
+    </Root>
+  );
+};
+
+// Page Component
+export default async function Page(event: KindePageEvent): Promise<string> {
+  const page = await SignUpEmailOtpPage(event);
+  return renderToString(page);
+}
