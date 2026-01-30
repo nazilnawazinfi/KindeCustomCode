@@ -35,7 +35,7 @@ const CustomOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
           <div className="wrapper">
             <div className="left">
               <div className="card">
-                              <img className="logo" src="../../../../images/MercyLogoV2.png" alt="Logo" />
+                              <img className="logo" src="/images/MercyLogoV2.png" alt="Logo" />
                 <div className="title">Enter OTP</div>
                 <div className="sub">Please enter the OTP sent to your email.</div>
 
@@ -46,7 +46,7 @@ const CustomOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
 
             <div className="right">
               <img
-                src="~/images/shutterstock_191314136_V1.png"
+                src="/images/shutterstock_191314136_V1.png"
                 alt="Visual"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
