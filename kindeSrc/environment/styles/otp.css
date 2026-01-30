@@ -1,0 +1,63 @@
+﻿.otp-container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.otp-left {
+    width: 50%;
+    padding: 80px;
+    background: #ffffff;
+}
+
+.logo {
+    max-width: 280px;
+    margin-bottom: 40px;
+}
+
+.otp-left h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.otp-left p {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.otp-left label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.otp-left input {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.otp-left button {
+    width: 100%;
+    padding: 14px;
+    background-color: #2f3b55;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.otp-right {
+    width: 50%;
+    background: #eef3f8;
+}
+
+    .otp-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
