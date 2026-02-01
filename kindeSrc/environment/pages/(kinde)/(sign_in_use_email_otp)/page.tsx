@@ -45,7 +45,7 @@ const CustomOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
             </div>
 
             <div className="right">
-              <img src="/assets/images/shutterstock_191314136_V1.png"
+                          <img src="https://dev.planalytics.mercycarehealthplans.com/images/shutterstock_191314136_V1.png"
                 alt="Visual"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
