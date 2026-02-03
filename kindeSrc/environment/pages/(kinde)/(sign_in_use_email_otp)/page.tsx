@@ -1,62 +1,54 @@
-"use server";
-
+﻿"use server";
 import React from "react";
 import { renderToString } from "react-dom/server.browser";
 import { type KindePageEvent } from "@kinde/infrastructure";
 import { Root } from "../../../../root";
 import { getKindeWidget, getKindeRequiredCSS } from "@kinde/infrastructure";
-
 const CustomOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
-  const widget = getKindeWidget({ context, request }); //gets OTP form widget
-  const css = getKindeRequiredCSS({ context });
-
-  return (
-    <Root context={context} request={request}>
-      <html>
-        <head>
-          <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <style dangerouslySetInnerHTML={{ __html: css }} />
-          <style>{`
-            body{ margin:0; font-family: Inter, sans-serif; }
-            .wrapper{ display:flex; height:100vh; width:100%; }
-            .left{ width:50%; background:#fff; display:flex; flex-direction:column;
-                   justify-content:center; align-items:center; padding:60px; }
-            .right{ width:50%; background:#2f3a4c; display:flex; align-items:center; justify-content:center; }
-            .card{ width:100%; max-width:360px; }
+    const widget = getKindeWidget({ context, request }); //gets OTP form widget
+    const css = getKindeRequiredCSS({ context });
+    return (
+        <Root context={context} request={request}>
+            <html>
+                <head>
+                    <meta charSet="utf-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <style dangerouslySetInnerHTML={{ __html: css }} />
+                    <style>{`
+             body {margin: 0;font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;background: #f4f6f8; min-height: 100vh; display: flex; align-items: center; justify-content: center;}
+            .wrapper{ display:flex; width:100%; justify-content:center; align-items:center }
+            .left{ width:100%; display:flex; justify-content:center; align-items:center; padding:24px;box-sizing: border-box; }
+            .card{ width:100%; max-width:360px;         background: #ffffff; padding: 32px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);box-sizing: border-box; }
             .logo{ width:180px; margin-bottom:20px; }
-            .title{ font-size:26px; font-weight:700; margin-bottom:10px; }
-            .sub{ font-size:14px; color:#666; margin-bottom:20px; }
-            .otpbox{ margin-top:20px; }
+            .title {font-size: 25px;font-weight: 600;color: #0f172a; margin-bottom: 0; text-align: center; }
+            .icon {font-size: 30px;font-weight: 400; margin-bottom: 0; text-align: center; }
+            .sub{ margin-top: 12px; font-size:14px;color: #64748b; line-height: 1.5; text-align: center;  }
+            .otpbox{ width: 100%;padding: 16px;font-size: 20px; letter-spacing: 0.5em;border-radius: 12px;       
+                 border: 1px solid #cbd5e1;background: #ffffff;text-align: center;color: #0f172a;outline: none;box-sizing: border-box; }
           `}</style>
-        </head>
+                </head>
+                <body>
+                    <div className="wrapper">
+                        <div className="left">
+                            <div className="card">
+                                <div className="icon">📧</div>
+                                <div className="title">Check your Email</div>
+                                <div className="sub">
+                                    A verification code has been sent to your email.
+                                </div>
 
-        <body>
-          <div className="wrapper">
-            <div className="left">
-              <div className="card">
-                              <img className="logo" src="/assets/images/MercyLogoV2.png" alt="Logo" />
-                <div className="title">Enter OTP</div>
-                <div className="sub">Please enter the OTP sent to your email.</div>
-
-              
-                <div className="otpbox" dangerouslySetInnerHTML={{ __html: widget }} />
-              </div>
-            </div>
-
-            <div className="right">
-                          <img src="https://dev.planalytics.mercycarehealthplans.com/images/shutterstock_191314136_V1.png"
-                alt="Visual"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            </div>
-          </div>
-        </body>
-      </html>
-    </Root>
-  );
+                                <div
+                                    className="otpbox"
+                                    dangerouslySetInnerHTML={{ __html: widget }}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </body>
+            </html>
+        </Root>
+    );
 };
-
 export default async function Page(event: KindePageEvent): Promise<string> {
-  return renderToString(<CustomOtpPage {...event} />);
+    return renderToString(<CustomOtpPage {...event} />);
 }
