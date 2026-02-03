@@ -7,6 +7,14 @@ import { getKindeWidget, getKindeRequiredCSS } from "@kinde/infrastructure";
 const CustomOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
     const widget = getKindeWidget({ context, request }); //gets OTP form widget
     const css = getKindeRequiredCSS({ context });
+
+    const email =
+        (context as any)?.user?.email ||
+        (context as any)?.auth?.email ||
+        (context as any)?.email ||
+        (context as any)?.login_hint ||
+        "";
+
     return (
         <Root context={context} request={request}>
             <html>
@@ -36,7 +44,7 @@ const CustomOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
                                 <div className="sub">
                                     A verification code has been sent to your email.
                                 </div>
-
+                                {email ? <div className="email">:- {email}</div> : null}
                                 <div
                                     className="otpbox"
                                     dangerouslySetInnerHTML={{ __html: widget }}
