@@ -1,4 +1,4 @@
-"use server";
+﻿"use server";
 
 import React from "react";
 import { renderToString } from "react-dom/server.browser";
@@ -22,71 +22,116 @@ const MfaEmailOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
 
                     {/* Custom styling */}
                     <style>{`
-            body { margin: 0; font-family: Inter, sans-serif; background: #fff; }
-            .wrapper { display: flex; height: 100vh; width: 100%; }
-            
-            .left {
-              width: 50%;
-              background: #fff;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              padding: 60px;
-            }
-
-            .right {
-              width: 50%;
-              background: #2f3a4c;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            }
-
-            .card {
-              width: 100%;
-              max-width: 380px;
-            }
-
-            .logo {
-              width: 220px;
-              margin-bottom: 24px;
-            }
-
-            .title {
-              font-size: 28px;
-              font-weight: 700;
-              margin: 10px 0;
-              color: #111;
-            }
-
-            .sub {
-              font-size: 14px;
-              color: #666;
-              margin-bottom: 18px;
-              line-height: 1.6;
-            }
-
-            .otpbox {
-              margin-top: 16px;
-            }
-
-            /* Make Kinde widget button full width */
-            .otpbox button {
-              width: 100% !important;
-              border-radius: 40px !important;
-              padding: 12px 16px !important;
-              font-size: 16px !important;
-              font-weight: 600 !important;
-            }
-
-            /* Responsive */
-            @media (max-width: 900px) {
-              .wrapper { flex-direction: column; }
-              .left, .right { width: 100%; }
-              .right { height: 240px; }
-            }
-          `}</style>
+                body { margin: 0; font-family: Inter, sans-serif; background: #fff; }
+                body {
+                    margin: 0;
+                    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+                    sans-serif;
+                    background: #ffffff;
+                    min-height: 100vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+               
+                /* Layout */
+                .wrapper {
+                    display: flex;
+                    width: 100%;
+                    justify-content: center;
+                    align-items: center;
+                }
+               
+                .left {
+                    width: 100%;
+                    background: #ffffff;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 60px;
+                    box-sizing: border-box;
+                }
+               
+               
+                /* Card */
+                .card {
+                    width: 100%;
+                    max-width: 360px;
+                    background: #ffffff;
+                    padding: 32px;
+                    border-radius: 16px;
+                    border: 1px solid #e2e8f0;
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+                    box-sizing: border-box;
+                }
+               
+                /* Icon */
+                .icon {
+                    width: 56px;
+                    height: 56px;
+                    margin: 0 auto 16px;
+                    border-radius: 50%;
+                    background: #f1f5f9;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 22px;
+                    color: #334155;
+                }
+               
+                /* Title */
+                .title {
+                    font-size: 25px;
+                    font-weight: 700;
+                    color: #0f172a;
+                    text-align: center;
+                    line-height: 1.3;
+                    margin-bottom: 12px;
+                }
+               
+                /* Subtitle */
+                .sub {
+                    font-size: 14px;
+                    color: #6b7280;
+                    text-align: center;
+                    line-height: 1.6;
+                    margin-bottom: 32px;
+                    max-width: 360px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+               
+                /* OTP widget container */
+                .otpbox {
+                    margin-top: 0;
+                }
+               
+                /* Let Kinde control input styling — only spacing */
+                .otpbox input {
+                    width: 100%;
+                }
+               
+                /* Keep Kinde button default, only make it full width */
+                .otpbox button {
+                    width: 100% !important;
+                    border-radius: 14px !important;
+                    padding: 16px !important;
+                    font-size: 17px !important;
+                    font-weight: 600 !important;
+                }
+               
+                /* Responsive */
+                @media (max-width: 900px) {
+                    .wrapper {
+                    flex-direction: column;
+                    }
+               
+                    .left
+                   {
+                    width: 100%;
+                    }
+                }              
+            `}</style>
                 </head>
 
                 <body>
@@ -95,16 +140,13 @@ const MfaEmailOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
                         <div className="left">
                             <div className="card">
                                 {/* Logo */}
-                                <img
-                                    className="logo"
-                                    src="/assets/images/MercyLogoV2.png"
-                                    alt="MercyCare Planalytics"
-                                />
+                                <div className="icon">🛡️</div>
 
                                 {/* Title */}
-                                <div className="title">Enter OTP</div>
+                                <div className="title">Enter your authenticator code</div>
                                 <div className="sub">
-                                    Please enter the OTP sent to your email to complete MFA verification.
+                                    Open your authenticator app (such as Google Authenticator or
+                                    Microsoft Authenticator) and enter the 6-digit code.
                                 </div>
 
                                 {/* Kinde OTP Widget */}
@@ -115,14 +157,6 @@ const MfaEmailOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
                             </div>
                         </div>
 
-                        {/* Right side image */}
-                        <div className="right">
-                            <img
-                                src="/assets/images/shutterstock_191314136_V1.png"
-                                alt="Visual"
-                                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                            />
-                        </div>
                     </div>
                 </body>
             </html>
