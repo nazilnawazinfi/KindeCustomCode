@@ -100,37 +100,41 @@ const MfaEmailOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
                     margin-left: auto;
                     margin-right: auto;
                 }
-               
-                /* OTP widget container */
+                   
+                /* Kinde widget container ONLY */
                 .otpbox {
-                    margin-top: 0;
+                width: 100%;
                 }
-               
-                /* Let Kinde control input styling — only spacing */
+ 
+                /* Kinde input */
                 .otpbox input {
-                    width: 100%;
+                width: 100%;
+                padding: 16px;
+                font-size: 20px;
+                letter-spacing: 0.5em;
+                border-radius: 12px;
+                border: 1px solid #cbd5e1;
+                background: #ffffff;
+                text-align: center;
+                color: #0f172a;
+                outline: none;
+                box-sizing: border-box;
                 }
-               
-                /* Keep Kinde button default, only make it full width */
+ 
+                .otpbox input::placeholder {
+                color: #94a3b8;
+                }
+ 
+                .otpbox input:focus {
+                border-color: #4f46e5;
+                box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+                }
+ 
+                /* Kinde button – keep default look, just full width */
                 .otpbox button {
-                    width: 100% !important;
-                    border-radius: 14px !important;
-                    padding: 16px !important;
-                    font-size: 17px !important;
-                    font-weight: 600 !important;
-                }
-               
-                /* Responsive */
-                @media (max-width: 900px) {
-                    .wrapper {
-                    flex-direction: column;
-                    }
-               
-                    .left
-                   {
-                    width: 100%;
-                    }
-                }              
+                margin-top: 24px;
+                width: 100% !important;
+                }            
             `}</style>
                 </head>
 
@@ -156,7 +160,6 @@ const MfaEmailOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
                                 />
                             </div>
                         </div>
-
                     </div>
                 </body>
             </html>
