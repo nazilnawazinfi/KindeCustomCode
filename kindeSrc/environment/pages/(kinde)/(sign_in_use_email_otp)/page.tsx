@@ -45,7 +45,7 @@ const CustomOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
 /* Card (same as Tailwind max-w-md + p-8) */
 .card {
   width: 100%;
-  max-width: 448px;
+  max-width: 360px;
   background: #ffffff;
   padding: 32px;
   border-radius: 16px;
@@ -126,12 +126,11 @@ const CustomOtpPage: React.FC<KindePageEvent> = ({ context, request }) => {
                     <div className="wrapper">
                         <div className="left">
                             <div className="card">
-                                <div className="icon">📧</div>
+                                <div className="icon">&#9993;</div>
                                 <div className="title">Check your Email</div>
                                 <div className="sub">
                                     A verification code has been sent to your email.
                                 </div>
-
                                 <div
                                     className="otpbox"
                                     dangerouslySetInnerHTML={{ __html: widget }}
